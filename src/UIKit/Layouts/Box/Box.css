@@ -3,8 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--gap);
-    margin: var(--gap);
+    padding: 20px;
+    margin: 20px;
     width: 300px;
     min-height: 50px;
     height: auto;

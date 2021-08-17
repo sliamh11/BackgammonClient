@@ -2,8 +2,8 @@
     display: inherit;
     text-align: center;
     justify-content: center;
-    background-color: var(--accent-color);
-    padding: var(--gap - 5) var(--gap);
+    background-color: #61dafb;
+    padding: 15px 20px;
     border-radius: 5px;
     max-width: 7rem;
     min-height: 2rem;

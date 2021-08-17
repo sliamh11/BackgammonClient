@@ -1,16 +1,16 @@
 
 .Form > h1 {
     text-align: center;
-    margin: var(--gap-m) 0px;
+    margin: 10px 0px;
     
 }
 
 .Form > h3 {
     text-align: center;
-    color: var(--secondary-text);
+    color: rgba(83, 82, 82, 0.514);
 }
 
 .Form > .content {
-    margin-top: var(--gap);
+    margin-top: 20px;
     
 }
