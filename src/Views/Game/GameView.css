@@ -8,3 +8,44 @@
     height: auto;
     background-image: url("../../Static/Images/darkBoardBackground.png");
 }
+
+.game-view-screen .chat-side-grid{
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.chat-side-grid .status-board{
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-board > .Box{
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: rgb(66, 70, 73) 3px 3px 6px 0px inset, rgba(122, 122, 122, 0.5) -3px -3px 6px 1px inset;
+}
+
+.status-board > .Box .color-container{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-container .player-color{
+    margin:0px 5px;
+}
+
+.player-color.white{
+    padding:5px;
+    background: rgb(197, 0, 0);
+    color:white;
+}
+
+.player-color.black{
+    padding:5px;
+    background: rgb(197, 0, 0);
+    color:black;
+}

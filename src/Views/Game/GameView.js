@@ -1,15 +1,19 @@
 import './GameView.css';
-import { Grid, AlertDialog } from 'UIKit';
+import { Grid, AlertDialog, Box } from 'UIKit';
 import Chat from "Components/Chat/Chat";
 import Board from "Components/Backgammon/Board/Board";
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // This component is in charge of the page itself, containing both the Board and Chat components.
 const GameView = (props) => {
 
     // ------ States ------
+    const location = useLocation();
+    const { partner } = location.state || "unknown";
     const socket = useSelector((state) => state.socket);
+    const [color, setColor] = useState(null);
     const [alert, setAlert] = useState({
         isAlert: false,
         header: "",
@@ -48,9 +52,22 @@ const GameView = (props) => {
         <div className="game-view-screen">
             <Grid className="game-view">
                 <div className="board-screen">
-                    <Board></Board>
+                    <Board setColor={setColor} />
                 </div>
-                <Chat></Chat>
+                <div className="chat-side-grid">
+                    <div className="status-board">
+                        <Box>
+                            <h3>Backgammon against: {partner}</h3>
+                            <div className={`color-container`}>
+                                <div>Your color:</div>
+                                <h3 className={`player-color ${color || ''}`}>
+                                    {color || 'roll to find out!'}
+                                </h3>
+                            </div>
+                        </Box>
+                    </div>
+                    <Chat/>
+                </div>
             </Grid>
             {alert.isAlert
                 ? <AlertDialog header={alert.header} content={alert.message} setResult={setAlert} />

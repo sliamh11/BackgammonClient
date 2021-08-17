@@ -86,7 +86,7 @@ const Board = (props) => {
         // Will be called when game ends.
         if (isGameOver && alert.isClosed) {
             history.go(0);
-        } else if(alert.isClosed){
+        } else if (alert.isClosed) {
             // Will be called when theres a server_error socket emitted / need to re-roll turns.
             setAlert({
                 isAlert: false,
@@ -154,6 +154,7 @@ const Board = (props) => {
             isWhitePieces = false;
         }
         socket.emit("piece_color", isWhitePieces);
+        isWhitePieces ? props.setColor("white") : props.setColor("black");
         setDiceRolls([]);
         setPartnerDicesRoll([]);
         setGameStarted(true);
@@ -237,13 +238,17 @@ const Board = (props) => {
 
     const checkPosition = (index) => {
         // checks if the spot's position is even / odd / middle.
+        const isMiddle = index === 19 || index === 6;
         let position = undefined;
-        if (index === 19 || index === 6) {
-            position = "middle"
-        } else {
-            let spot = index + 1 % 6;
-            position = spot % 2 === 0 ? "even" : "odd";
+        if (isMiddle) {
+            return position = "middle"
         }
+        // If the index is between middle indexs - add 1 to index so it's colors will keep on order.
+        if (index > 6 && index < 19) {
+            index += 1;
+        }
+        let spot = index + 1 % 6;
+        position = spot % 2 === 0 ? "even" : "odd";
         return position;
     }
 
@@ -303,6 +308,9 @@ const Board = (props) => {
     }
 
     const handleRollClick = () => {
+        // Setting a random value so the player wont be able to double click fast.
+        setDiceRolls([0]);
+        // Sending a request to the server to roll dices.
         if (gameStarted) {
             socket.emit("roll_dices");
         } else {
