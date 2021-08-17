@@ -6,6 +6,7 @@ import { setUserState } from 'State/Actions';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import UserModel from 'models/UserModel';
+import { NavLink } from 'react-router-dom';
 
 const LoginView = (props) => {
 
@@ -36,7 +37,6 @@ const LoginView = (props) => {
                 const user = new UserModel(username, password);
                 const result = await axios.post(api_login, user);
                 if (result) {
-                    console.log(result);
                     setError('');
                     const { token, username } = result.data;
                     sessionStorage.setItem("access-token", token);
@@ -60,6 +60,9 @@ const LoginView = (props) => {
                     <div className="center">
                         <Button onClick={handleOnClick}>Login</Button>
                     </div>
+                    <h5 className="signup-link center">
+                        <NavLink exact to="/signup">Need to register?</NavLink>
+                    </h5>
                 </Form>
             </Box>
         </div>

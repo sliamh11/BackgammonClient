@@ -22,6 +22,7 @@ const Board = (props) => {
     const [isWhitePieces, setIsWhitePieces] = useState(false);
     const [chosenSpot, setChosenSpot] = useState(-1);
     const [targetSpot, setTargetSpot] = useState(-1);
+    const [isGameOver, setIsGameOver] = useState(false);
 
     const [alert, setAlert] = useState({
         isAlert: false,
@@ -82,19 +83,17 @@ const Board = (props) => {
 
     useEffect(() => {
         // When the 'Ok' button in the alert window is clicked.
-        if (!gameStarted && alert.isClosed) {
-            // will be called when there's a need to re-roll turns.
+        // Will be called when game ends.
+        if (isGameOver && alert.isClosed) {
+            history.go(0);
+        } else if(alert.isClosed){
+            // Will be called when theres a server_error socket emitted / need to re-roll turns.
             setAlert({
                 isAlert: false,
                 header: "",
                 message: "",
                 isClosed: false
             });
-        } else {
-            // Will be called when game ends.
-            if (alert.isClosed) {
-                history.go(0);
-            }
         }
     }, [alert]);
 
@@ -113,6 +112,7 @@ const Board = (props) => {
         socket.on("piece_moved", onPieceMoved);
         socket.once("game_over", onGameOver);
         socket.on("game_request", onGameRequest);
+        socket.on("server_error", onServerError);
     }
 
     const onJoinedGame = (board) => {
@@ -206,6 +206,7 @@ const Board = (props) => {
 
     const onGameOver = (data) => {
         // Update the last moves of the player and pop up the AlertDialog Component.
+        setIsGameOver(true);
         setDiceRolls(data.rolls);
         setBoard(data.board);
         socket.emit("game_over");
@@ -220,6 +221,16 @@ const Board = (props) => {
     const onGameRequest = (oponent) => {
         // If another user sends a game request mid-game, notify him that the user is busy.
         socket.emit("partner_declined", oponent, true);
+    }
+
+    const onServerError = (msg) => {
+        // On any kind of mid-game server error.
+        setAlert({
+            isAlert: true,
+            header: "Server Error!",
+            message: msg,
+            isClosed: false
+        });
     }
 
     // ------ Helpers ------

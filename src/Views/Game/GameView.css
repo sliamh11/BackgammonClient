@@ -1,3 +1,8 @@
+.game-view-screen{
+    height: 100%;
+    position:relative;
+}
+
 .board-screen{
     display: inline-block;
     margin: 30px;

@@ -1,5 +1,5 @@
 .screen{
-    position: inherit;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,9 +102,9 @@
 }
 
 .message-container{
-    display: flexbox;
+    display: flex;
     width: 100%;
-    padding: 3px 0;
+    padding: 3px 0px;
     margin:7px;
 
 }

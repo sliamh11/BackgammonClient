@@ -1,6 +1,6 @@
 import './Chat.css';
 import { Message } from 'Components';
-import { Button } from "UIKit";
+import { Button, AlertDialog } from "UIKit";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -16,6 +16,7 @@ const Chat = (props) => {
     const [chat, setChat] = useState([]);
     const [chatName, setChatName] = useState(null);
     const { partner } = location.state || 'unknown';
+    
 
     // ------ useEffects ------
     useEffect(() => {
@@ -25,14 +26,14 @@ const Chat = (props) => {
 
     useEffect(() => {
         // Scrolls down whenever chat updated.
-        scrollRef?.current.scrollIntoView({ behavior: "smooth" });
+        scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
     }, [chat]);
 
     // ------ Sockets & Listeners ------
 
     const initSockets = () => {
         socket.once("joined_chat", onJoinedRoom);
-        socket.on("receive_msg", onMsgReceived)
+        socket.on("receive_msg", onMsgReceived);
     }
 
     const onJoinedRoom = (data) => {
@@ -69,8 +70,8 @@ const Chat = (props) => {
         if (chat) {
             return chat.map((content, index) => {
                 return (
-                    <div key={index} className="message-container" ref={scrollRef}>
-                        <div className={`message ${content.sender === username ? "myMsg" : "partnerMsg"}`}>
+                    <div key={index} className="message-container">
+                        <div ref={scrollRef} className={`message ${content.sender === username ? "myMsg" : "partnerMsg"}`}>
                             <Message msg={content.msg} sender={content.sender} />
                         </div>
                     </div>
@@ -88,7 +89,6 @@ const Chat = (props) => {
                 <div className="chat-body-wrapper">
                     <div className="chat-body">
                         {loadChat()}
-                        <div ref={scrollRef}></div>
                     </div>
                 </div>
                 <div className="textarea-box">
@@ -96,6 +96,7 @@ const Chat = (props) => {
                     <Button onClick={handleSendMessage}>Send</Button>
                 </div>
             </div>
+            
         </div>
     )
 }

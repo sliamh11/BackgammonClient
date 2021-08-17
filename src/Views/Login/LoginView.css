@@ -15,3 +15,18 @@
 .error{
     color: red;
 }
+
+.signup-link a{
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.712);
+}
+
+.signup-link a:hover{
+    text-decoration: underline;
+    color:rgba(0, 0, 0);
+    opacity: 0.6;
+}
+
+.signup-link a:hover:active{
+    opacity: 0.9;
+}

@@ -78,6 +78,7 @@ const ContactView = (props) => {
         socket.on("game_request", onGameRequest);
         socket.on("game_accepted", onGameAccepted);
         socket.on("game_request_failed", onRequestFailed);
+        socket.on("server_error", onServerError);
     }
 
     const onGameRequest = (oponent) => {
@@ -121,6 +122,16 @@ const ContactView = (props) => {
         if (users.length > 0) {
             setUsersOnline(users);
         }
+    }
+
+    const onServerError = (msg) => {
+        // Pops up an alert whenever theres a "server_error" emitted from server.
+        setAlert({
+            isAlert: true,
+            header: "Server Error!",
+            message: msg,
+            isClosed: false
+        });
     }
 
     // --------- Helpers ---------
