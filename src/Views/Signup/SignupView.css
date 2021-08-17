@@ -1,0 +1,17 @@
+.signup-container{
+    height: 100%;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container > .Box{
+    box-shadow: rgb(95, 130, 141) 0px 22px 200px 144px;
+}
+
+.error{
+    color:red;
+}

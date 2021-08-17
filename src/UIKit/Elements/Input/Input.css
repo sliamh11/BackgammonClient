@@ -1,0 +1,46 @@
+.Input{
+    margin: var(--gap-m) 0;
+    display: block;
+}
+
+.Input .Line{
+    padding-left: 0;
+}
+
+
+input{
+    appearance: none;
+    border: none;
+    outline: none;
+    padding: var(--gap-m) 0;
+    text-align: center;
+    box-sizing:border-box;
+    background-color: #F8F8F8;
+    border-radius: 8px;
+    transition: 0.4s;
+    width:100%;
+    padding: var(--gap-m) var(--gap);
+}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+.Input:focus-within .label{
+    color:#3a3abd;
+}
+
+.Input > .Line{
+    padding-right: 0;
+}
+
+.label{
+    display: block;
+    margin-bottom: var(--gap-m);
+    font-size: 16px;
+    color: #888;
+}
+
+input:focus{
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+}

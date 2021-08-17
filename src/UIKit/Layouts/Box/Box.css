@@ -1,0 +1,11 @@
+.Box {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--gap);
+    margin: var(--gap);
+    width: 300px;
+    min-height: 50px;
+    height: auto;
+}

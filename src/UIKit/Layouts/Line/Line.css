@@ -1,0 +1,27 @@
+.Line{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--gap);
+    gap: var(--gap);
+}
+
+.Line[justify="center"]{
+    justify-content: center;
+}
+
+.Line[justify="end"]{
+    justify-content: flex-end;
+}
+
+.Line[justify="between"]{
+    justify-content: space-between;
+}
+
+.Line[justify="around"]{
+    justify-content: space-around;
+}
+
+.Line[position="absolute"]{
+    position:absolute;
+}

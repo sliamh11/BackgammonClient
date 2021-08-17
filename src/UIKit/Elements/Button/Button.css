@@ -1,0 +1,21 @@
+.Button{
+    display: inherit;
+    text-align: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    padding: var(--gap - 5) var(--gap);
+    border-radius: 5px;
+    max-width: 7rem;
+    min-height: 2rem;
+    width: 7rem;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.Button:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.Button:active{
+    opacity: 0.9;
+}

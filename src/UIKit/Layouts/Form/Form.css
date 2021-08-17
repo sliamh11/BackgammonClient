@@ -1,0 +1,16 @@
+
+.Form > h1 {
+    text-align: center;
+    margin: var(--gap-m) 0px;
+    
+}
+
+.Form > h3 {
+    text-align: center;
+    color: var(--secondary-text);
+}
+
+.Form > .content {
+    margin-top: var(--gap);
+    
+}

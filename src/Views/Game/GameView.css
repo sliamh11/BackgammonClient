@@ -1,0 +1,6 @@
+.board-screen{
+    display: inline-block;
+    margin: 30px;
+    height: auto;
+    background-image: url("../../Static/Images/darkBoardBackground.png");
+}

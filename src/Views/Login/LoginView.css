@@ -1,0 +1,17 @@
+.login-container{
+    height: 100%;
+}
+
+.center{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container .Box{
+    box-shadow: rgb(61, 92, 126) 0px 22px 200px 144px;
+}
+
+.error{
+    color: red;
+}

@@ -1,0 +1,18 @@
+.Grid{
+    display: grid;
+    height: 100%;
+}
+
+.Grid.main{
+    grid-template-rows: 50px 1fr;
+    background-color: var(--primary-background-color);
+}
+
+.Grid.game-view{
+    grid-template-columns: minmax(50%, 75%) 25%;
+}
+
+.Grid.contact{
+    grid-template-rows: 50px 1fr 1fr;
+    grid-template-columns: 1fr 20vw;
+}

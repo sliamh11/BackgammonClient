@@ -1,0 +1,93 @@
+.Navbar{
+    background-color: rgb(202, 202, 202);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgb(100, 100, 100) 3px 3px 6px 0px inset, rgba(121, 121, 121, 0.5) -3px -3px 6px 1px inset;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.dropdown-container{
+    position:absolute;
+    top: 52%;
+    left: 5%;
+    transform: translate(-95%,-48%);
+}
+
+.dropdown-container .menu-icon{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.menu-icon .Icon svg{
+    width: 30px;
+    height: 30px;
+}
+
+.menu-icon:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.menu-icon:hover:active{
+    opacity: 0.9;
+}
+
+.title:hover{
+    opacity: 0.7;
+}
+
+.dropdown-container .dropdown{
+    position: absolute;
+    top: 12px;
+    left: -14px;
+    min-height: fit-content;
+    min-width: 150px;
+    max-width: 150px;
+    background: rgb(182, 187, 196);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dropdown > .item{
+    text-align: center;
+    padding:5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.item > a{
+    text-decoration: none;
+    color:black;
+}
+
+.dropdown > .item:hover{
+    background: rgb(113, 125, 202);
+}
+
+.dropdown > .item:hover:active{
+    transition: 0s;
+    opacity: 0.6;
+}
+
+.dropdown > .item.first{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.dropdown > .item.last{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.dropdown > .seperator{
+    width: 99%;
+    height: 0;
+    border: 1px groove rgba(194, 194, 194, 0.76);
+}

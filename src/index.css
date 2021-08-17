@@ -1,0 +1,27 @@
+:root{
+  --primary-background-color: #282c34;
+  --secondary-background-color: #e1e1e1;
+  --primary-text: black;
+  --secondary-text: rgba(83, 82, 82, 0.514);
+  --accent-color: #61dafb;
+  --border: #e1e1e1;
+
+  --gap: 20px;
+  --gap-m: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html, body, #root{
+  height: 100%;
+}

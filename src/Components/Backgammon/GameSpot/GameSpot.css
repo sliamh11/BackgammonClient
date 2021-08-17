@@ -1,0 +1,130 @@
+/* Main Container */
+.inner-spot-container{
+    /* position:relative; */
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Top and Bottom triangles */
+.inner-spot-container.even .top{
+    border-left: 1.7rem solid transparent;
+    border-right: 1.7rem solid transparent;
+    border-top: 12rem solid rgb(238, 238, 238);
+    position: relative;
+}
+
+.inner-spot-container.odd .top{
+    border-left: 1.7rem solid transparent;
+    border-right: 1.7rem solid transparent;
+    border-top: 12rem solid rgb(187, 10, 10);
+      position: relative;
+}
+
+.inner-spot-container.even .bottom {
+    border-left: 1.7rem solid transparent;
+    border-right: 1.7rem solid transparent;
+    border-bottom: 12rem solid rgb(238, 238, 238);
+    position: relative;
+}
+
+.inner-spot-container.odd .bottom {
+    border-left: 1.7rem solid transparent;
+    border-right: 1.7rem solid transparent;
+    border-bottom: 12rem solid rgb(187, 10, 10);
+    position: relative;
+}
+
+/* isMoveable */
+
+.inner-spot-container .bottom.moveable{
+    cursor: pointer;
+    border-left: 1.7rem solid rgba(255, 166, 0, 0.5);
+    border-right: 1.7rem solid rgba(255, 166, 0, 0.5);
+}
+
+.inner-spot-container .top.moveable{
+    cursor: pointer;
+    border-left: 1.7rem solid rgba(255, 166, 0, 0.5);
+    border-right: 1.7rem solid rgba(255, 166, 0, 0.5);
+}
+
+/* isRemoveable */
+.inner-spot-container .bottom.removeable{
+    cursor: pointer;
+    border-left: 1.7rem solid rgba(0, 255, 0, 0.5);
+    border-right: 1.7rem solid rgba(0, 255, 0, 0.5);
+}
+
+.inner-spot-container .top.removeable{
+    cursor: pointer;
+    border-left: 1.7rem solid rgba(0, 255, 0, 0.5)(255, 166, 0, 0.5);
+    border-right: 1.7rem solid rgba(0, 255, 0, 0.5)(255, 166, 0, 0.5);
+}
+
+/* Middle part of board - stacks and position for top and bottom */
+.inner-spot-container.middle{
+    position:relative;
+    height: 100%;
+    background-image: url("../../../Static/Images/darkBoardBackground.png");
+    box-shadow: 1px 0 15px 4px;
+}
+
+.inner-spot-container.middle .top{
+    width: 100%;
+    height:100%;
+    position:relative;
+}
+
+.inner-spot-container.middle .bottom{
+    width: 100%;
+    height:100%;
+    position:relative;
+}
+
+/* GamePiece stacks & positioning */
+.piece-stack{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 250px;
+    row-gap: 3px;
+}
+
+.inner-spot-container .top .piece-stack{
+    position:absolute;
+    width: 3rem;
+    height: 12rem;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.inner-spot-container .bottom .piece-stack{
+    position:absolute;
+    width: 3rem;
+    height: 12rem;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: normal;
+}
+
+.inner-spot-container.middle .top .piece-stack{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.inner-spot-container.middle .bottom .piece-stack{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}

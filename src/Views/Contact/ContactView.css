@@ -1,0 +1,57 @@
+.contact-screen{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-screen > .Box{
+    max-height: 50vh;
+    box-shadow: rgb(51, 87, 90) 0px 22px 200px 144px;
+}
+
+.contact-grid{
+    display: grid;
+    grid-template-rows: 20% 1fr 1fr;
+    row-gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-container .contact-title{
+    display: inherit;
+    align-items:center;    
+    justify-content: center;
+    width: 100%;
+    border-bottom: 2px groove rgba(187, 187, 187, 0.582);
+    padding-bottom: 5px;
+    height:100%;
+}
+
+.contact-container .contact-title h1{
+    margin: 0;
+}
+
+.contact-container .contacts{
+    display: inline-block;
+    height: 100%;
+    margin: var(--gap-m) 5px;
+    overflow-y:auto;
+    flex-direction: row;
+}
+
+.contact-container .contacts.online{
+    border-bottom: 2px groove rgba(187, 187, 187, 0.582);
+}
+
+.contacts-title{
+    font-weight: 800;
+}

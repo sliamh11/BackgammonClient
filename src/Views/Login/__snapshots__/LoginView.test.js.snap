@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login /> Elements test should match the snapshot 1`] = `"<div class=\\"container center\\"><div class=\\"Box\\"><div class=\\"Form\\"><h1>Login</h1><h3></h3><div class=\\"content\\"><div class=\\"Input\\"><div><label class=\\"label\\">Username:</label></div><div class=\\"Line \\"><input type=\\"text\\" name=\\"username\\" value=\\"\\"/></div></div><div class=\\"Input\\"><div><label class=\\"label\\">Password:</label></div><div class=\\"Line \\"><input type=\\"text\\" name=\\"password\\" value=\\"\\"/></div></div><div class=\\"center\\"><div class=\\"Button\\"><div class=\\"Line \\" justify=\\"between\\"><div>Login</div></div></div></div></div></div></div></div>"`;

@@ -1,0 +1,177 @@
+/* Main board grid & inner grids (top & bottom) */
+.board-grid{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    min-width: 800px;
+    height:90%;
+    width: initial;
+    margin: 30px;
+    background-image: url("../../../Static/Images/boardBackground.png");
+    box-shadow: rgba(0, 0, 0, 0.74) 3px 3px 6px 1px inset, rgba(0, 0, 0, 0.63) -3px -3px 6px 1px inset;
+    position:relative;
+}
+
+.board-grid .inner-board-grid{
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+}
+
+.board-grid .inner-board-grid.top-row-rtl{
+    direction: rtl;
+}
+
+.inner-board-grid .spot-container{
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.inner-board-grid .spot-container.ltr-spot{
+    direction: ltr;
+}
+
+.inner-board-grid .spot-container.bot-row{
+    align-items: flex-end;
+}
+
+/* Roll Button & Dices's container */
+.board-grid .roll-turns-container{
+    position: absolute;
+    top:50%;
+    left:70%;
+    transform: translate(-30%,-50%);
+    width: 250px;
+    height: 150px;
+}
+
+.roll-turns-container > .cube1{
+    position: absolute;
+    top:50%;
+    left:25%;
+    transform: translate(-75%,-50%);
+}
+
+.roll-turns-container > .cube2{
+    position: absolute;
+    top:50%;
+    left:75%;
+    transform: translate(-25%,-50%);
+}
+
+.roll-turns-container > .board-button.roll-turn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.roll-turns-container > .my-dice{
+    position: absolute;
+    top:25%;
+    left: 80%;
+    transform: translate(-20%,-75%);
+    width: fit-content;
+    font-weight: bold;
+}
+
+.roll-turns-container > .my-roll-turn-dice{
+    position:absolute;
+    top:50%;
+    left:80%;
+    transform: translate(-20%, -50%);
+}
+
+.roll-turns-container > .oponent-dice{
+    position: absolute;
+    top:25%;
+    left: 20%;
+    transform: translate(-80%,-75%);
+    width: fit-content;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.roll-turns-container > .oponent-roll-turn-dice{
+    position:absolute;
+    top:50%;
+    left:20%;
+    transform: translate(-80%, -50%);
+}
+
+.roll-turns-container > .oponent-turn{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.roll-turns-container > .oponent-turn :nth-child(1){
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-75%);
+    font-size: 20px;
+    font-weight: bold;
+    width: fit-content;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Roll Dices Button */
+.board-button{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(218, 218, 218, 0.863);
+    width: fit-content;
+    min-width: 70px;
+    padding: 5px;
+    height: 30px;
+    border: 3px groove black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.board-button:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.board-button:hover:active{
+    opacity: 0.9;
+}
+
+.board-button.rolled-dices{
+    opacity: 0.6;
+}
+
+.board-button.rolled-dices:hover{
+    cursor:not-allowed;
+    opacity: 0.6;
+}
+
+.board-button.not-my-turn{
+    opacity: 0.6;
+}
+
+.board-button.not-my-turn:hover{
+    cursor: not-allowed;
+}
+
+.board-button.not-my-turn:hover:active{
+    opacity: 0.6;
+}
+
+/* End Turn Button  & container*/
+.board-grid .end-turn-container{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%,-50%);
+    width: 250px;
+    height: 150px;
+}
