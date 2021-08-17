@@ -18,7 +18,7 @@ const ContactsList = (props) => {
     }
 
     return (
-        <div className="contactList-container">
+        <div className="contacts-list-container">
             {loadContacts()}
         </div>
     )

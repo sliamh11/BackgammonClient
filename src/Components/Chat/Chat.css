@@ -21,7 +21,7 @@
 .chat-title{
     display: flex;
     justify-content: center;
-    background-color: rgb(48, 97, 204);
+    background-color: #4d36d1;
     width: 100%;
     max-width: initial;
     border-bottom: 2px groove black;

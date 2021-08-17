@@ -1,6 +1,6 @@
 import './Chat.css';
 import { Message } from 'Components';
-import { Button, AlertDialog } from "UIKit";
+import { Button } from "UIKit";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -10,13 +10,13 @@ const Chat = (props) => {
     // ------ States ------
     const location = useLocation();
     const scrollRef = useRef();
+    const { partner } = location.state || 'unknown';
     const username = useSelector((state) => state.userState);
     const socket = useSelector((state) => state.socket);
     const [message, setMessage] = useState('');
     const [chat, setChat] = useState([]);
     const [chatName, setChatName] = useState(null);
-    const { partner } = location.state || 'unknown';
-    
+    const [isTextFocus, setIsTextFocus] = useState(false);
 
     // ------ useEffects ------
     useEffect(() => {
@@ -30,7 +30,6 @@ const Chat = (props) => {
     }, [chat]);
 
     // ------ Sockets & Listeners ------
-
     const initSockets = () => {
         socket.once("joined_chat", onJoinedRoom);
         socket.on("receive_msg", onMsgReceived);
@@ -53,6 +52,9 @@ const Chat = (props) => {
     }
 
     const handleSendMessage = () => {
+        if (message.trim() === "") {
+            return;
+        }
         // When the player sends a message, send it to the other user and update states.
         let msgInfo = {
             chat_name: chatName,
@@ -64,6 +66,12 @@ const Chat = (props) => {
         socket.emit("send_msg", msgInfo);
         setChat(chat => [...chat, msgInfo.content]);
         setMessage('');
+    }
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter" && isTextFocus) {
+            handleSendMessage();
+        }
     }
 
     const loadChat = () => {
@@ -92,11 +100,14 @@ const Chat = (props) => {
                     </div>
                 </div>
                 <div className="textarea-box">
-                    <textarea value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+                    <textarea value={message}
+                        onKeyDown={handleKeyDown}
+                        onFocus={e => setIsTextFocus(e)}
+                        onBlur={e => setIsTextFocus(e)}
+                        onChange={(e) => setMessage(e.target.value)}></textarea>
                     <Button onClick={handleSendMessage}>Send</Button>
                 </div>
             </div>
-            
         </div>
     )
 }
