@@ -62,7 +62,7 @@
     cursor: pointer;
 }
 
-.item > a{
+a{
     text-decoration: none;
     color:black;
 }

@@ -42,13 +42,13 @@ const Navbar = (props) => {
         if (!username) {
             return (
                 <div className="dropdown">
-                    <div className="item first">
-                        <NavLink exact to="/login">Login</NavLink>
-                    </div>
+                    <NavLink className="item first" exact to="/login">
+                        Login
+                    </NavLink>
                     <div className="seperator"></div>
-                    <div className="item last">
-                        <NavLink exact to="/signup">Sign Up</NavLink>
-                    </div>
+                    <NavLink className="item last" exact to="/signup">
+                        Sign Up
+                    </NavLink>
                 </div>
             )
         } else {
