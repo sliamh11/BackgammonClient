@@ -6,6 +6,7 @@ const socket_url = "https://backgammonserver.azurewebsites.net";
 const socket = io(socket_url, { transports: ['websocket', 'polling', 'flashsocket'] });
 
 const userStateReducer = (state = null, action) => {
+    // Contains the username of the user, which indictates whether he's logged in or not.
     if (action.type === 'userState') {
         return action.payload;
     }
